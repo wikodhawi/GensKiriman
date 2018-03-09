@@ -1,0 +1,40 @@
+
+<?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<zk>
+	<window id="lov" mode="modal" apply="org.zkoss.bind.BindComposer" 
+		viewModel="@id('vm') @init('ui.lov.GroupDealerLovVmd')" closable="true" width="50%">
+		
+		<!-- TITLE AREA -->
+		<vbox hflex="1" width="50%" align="end">
+			<include src="/WEB-INF/template/toolbarLov.zul"/>
+		</vbox>	
+		
+		<!-- TOOLBAR AREA -->
+		
+		CONTENT AREA
+		<div width="100%" style="overflow:auto">
+		<listbox sizedByContent="true" model="@bind(vm.mstGroupDealerDtos)" emptyMessage="${labels.I003}"
+			selectedItem="@bind(vm.mstGroupDealerDto)">
+		<listhead>
+			<listheader label="${labels.groupDealerCode}" sort="auto(groupDealerCode)"
+				onSort="@command('sort', col='groupDealerCode')"/>
+			<listheader label="${labels.groupDealerName}" sort="auto(groupDealerName)"
+				onSort="@command('sort', col='groupDealerName')"/>
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="@bind(each.groupDealerCode)"
+					onDoubleClick="@command('choose')"/>
+				<listcell label="@bind(each.groupDealerName)"
+					onDoubleClick="@command('choose')"/>
+			</listitem>
+		</template>
+		</listbox>
+		</div>
+		<hbox>
+			<space spacing="20px"/>
+			<paging pageSize="@load(vm.pageSize)"
+				totalSize="@load(vm.totalSize)" activePage="@bind(vm.activePage)"/>
+		</hbox>
+	</window>
+</zk>

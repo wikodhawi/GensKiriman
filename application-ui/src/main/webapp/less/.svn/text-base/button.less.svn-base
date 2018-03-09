@@ -1,0 +1,182 @@
+@import "header.less";
+.z-button {
+	.fontStyle (@baseTitleFontFamily , @fontSizeMedium , normal , @whiteColor);
+	min-height: @baseButtonHeight;
+	border: 1px solid @baseButtonBorderColor;
+	.borderRadius (@baseBorderRadius);
+	padding: 3px 12px;
+	line-height: @baseLineHeight;
+	background: @baseButtonColor;
+	text-shadow: none;
+	cursor: pointer;
+	white-space: nowrap;
+	&:hover {
+		border-color: @hoverBorderColor;
+		background: @baseButtonHoverColor;
+	}
+
+	&:focus {
+		color: @whiteColor;
+		border-color: @focusBorderColor;
+		background: @baseButtonFocuseColor;
+		.boxShadow (inset 0 0 2px @baseButtonFocuseColor);
+	}
+
+	&:active {
+		border-color: @activeBorderColor;
+		background: @baseButtonAcvtiveColor;
+	}
+
+	&[disabled] {
+		border-color: @buttonBorderColor;
+		background: @baseButtonDisabledColor;
+		.opacity (@disabledOpacity);
+		.boxShadow ('none');
+		cursor: default;
+	}
+
+	img {
+		vertical-align: middle;
+	}
+
+	&.btn-lov {
+		height: @baseButtonHeight;
+		width: @baseButtonHeight;
+		border-radius: @baseButtonHeight;
+		padding: 0 ! important;
+	}
+	
+
+	&.btn-index {
+		background: none ! important;
+		border: none ! important;
+		color: @baseBtnIndexColor ! important;
+		width: 35px !important;
+		padding: 3px !important;
+		&:hover {
+			color: @baseBtnIndexHover ! important;
+		}
+
+		&:active {
+			color: @btnIndexActive ! important;
+		}
+
+		&:focus {
+			color: @btnIndexFocus ! important;
+		}
+		
+		&[disabled] {
+			color: @btnIndexDisabled ! important;
+		}
+
+		> [class *= "z-icon-"] {
+			display: inline;
+			margin-right: 4px;
+			margin-left: 4px;
+			font-size: large;
+		}
+	}
+
+	&.btn-gold {
+		background: @buttonGold;
+		border-color: @buttonGoldHover;
+		&:hover {
+			background-color: @buttonGoldHover;
+			border-color: @whiteColor;
+		}
+
+		&:active {
+			background: @buttonGoldActive ! important;
+			border-color: @whiteColor ! important;
+		}
+
+		&:focus {
+			background: @buttonGoldFocus;
+			border-color: @whiteColor;
+		}
+
+		&[disabled] {
+			background: @buttonGoldDisabled;
+			border: @whiteColor;
+		}
+	}
+	
+	&.btn-white {
+		background: @buttonWhite;
+		border-color: @buttonWhiteHover;
+		color:@baseColor;
+		&:hover {
+			background-color: @buttonWhiteHover;
+			border-color: @whiteColor;
+		}
+
+		&:active {
+			background: @buttonWhiteActive ! important;
+			border-color: @whiteColor ! important;
+		}
+
+		&:focus {
+			background: @buttonWhiteFocus;
+			border-color: @whiteColor;
+		}
+
+		&[disabled] {
+			background: @buttonWhiteDisabled;
+			border: @whiteColor;
+		}
+	}
+	
+	&.btn-lov-white {
+		background: @buttonWhite;
+		border-color: @buttonWhiteHover;
+		height: @baseButtonHeight;
+		width: @baseButtonHeight;
+		border-radius: @baseButtonHeight;
+		color:@baseColor;
+		padding: 0 ! important;
+		&:hover {
+			background-color: @buttonWhiteHover;
+			border-color: @whiteColor;
+		}
+
+		&:active {
+			background: @buttonWhiteActive ! important;
+			border-color: @whiteColor ! important;
+		}
+
+		&:focus {
+			background: @buttonWhiteFocus;
+			border-color: @whiteColor;
+		}
+
+		&[disabled] {
+			background: @buttonWhiteDisabled;
+			border: @whiteColor;
+		}
+	}
+	
+	&.btn-trans{
+		background-color:@whiteColor;
+		border-color:@whiteColor;
+		color:@baseColor;
+		&:hover {
+			color: @baseColorHover;
+		}
+		&:focus {
+			color: @focusShadowColor;
+		}
+		&:active {
+			color: @lightBlueBgColor;
+		}
+		&[disabled] {
+			color: @buttonGoldDisabled;
+		}
+	
+	}
+	
+}
+
+.ie8 .z-button {
+	min-height: @baseButtonHeight - 8;
+}
+

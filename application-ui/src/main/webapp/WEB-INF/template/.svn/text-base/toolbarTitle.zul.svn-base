@@ -1,0 +1,11 @@
+<zk>
+	<hbox width="100%" hflex="1" sclass="index-line">
+		<div sclass="page-header" hflex="1">
+			<label value="@load(vm.pageInfo.title)" />
+		</div>
+		<hbox hflex="1" pack="end">
+			<paging pageSize="@load(vm.pageSize)"
+				totalSize="@load(vm.totalSize)" activePage="@bind(vm.activePage)" />
+		</hbox>
+	</hbox>
+</zk>

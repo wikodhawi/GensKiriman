@@ -1,0 +1,85 @@
+<zk>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('ui.master.MasterColorVmd')">
+
+		<window id="winRunFormat" width="45%" height="55%" mode="modal"
+			form="@id('fx') @init(vm.formMaster) @load(vm.mstColorDto) @save(vm.mstColorDto, before='save')">
+
+			<borderlayout height="100%">
+				<north sclass="borderless">
+					<div sclass="page-header">
+						<!-- TITLE AREA -->
+						<include
+							src="WEB-INF/template/toolbarTitleDetail.zul" />
+						<!-- TITLE AREA -->
+
+						<hbox>
+							<!-- BUTTON AREA -->
+							<hbox width="100%">
+								<button sclass="btn-index"
+									iconSclass="z-icon-save" tooltiptext="${labels.save}"
+									visible="@load(vm.pageInfo.addMode or vm.pageInfo.editMode)"
+									onClick="@command('save')" />
+								<button sclass="btn-index"
+									iconSclass="z-icon-times" tooltiptext="${labels.cancel}"
+									visible="@load(vm.pageInfo.addMode or vm.pageInfo.editMode)"
+									onClick="@command(fxStatus.dirty? 'showDirty' : 'back')" />
+								<button sclass="btn-index"
+									iconSclass="z-icon-reply" tooltiptext="${labels.exit}"
+									onClick="@command('back')"
+									visible="@load(vm.pageInfo.viewMode eq true)" />
+							</hbox>
+
+							<!-- BUTTON AREA -->
+						</hbox>
+						<separator spacing="2px" />
+					</div>
+				</north>
+
+				<!-- CONTENT AREA START -->
+				<center sclass="borderless" autoscroll="true">
+					<div>
+						<grid>
+							<columns>
+								<column hflex="1" />
+								<column hflex="2" />
+							</columns>
+							<rows>
+								<row>
+									<label value="Kode Warna"/>
+									<textbox value="@bind(fx.colorCode)" 
+										disabled="true"/>
+								</row>
+								<row>
+									<label value="Nama Warna"/>
+									<textbox value="@bind(fx.colorDescrip)"
+										constraint="no empty"
+										disabled="@load(vm.pageInfo.viewMode)"/>
+								</row>
+								<row>
+									<label value="Alias Nama Warna"/>
+									<textbox value="@bind(fx.aliasName)"
+										constraint="no empty"
+										disabled="@load(vm.pageInfo.viewMode)"/>
+								</row>
+								<row>
+									<label value="Start Date"/>
+									<datebox value="@bind(fx.startDate)"
+										constraint="no empty, no past"
+										disabled="@load(vm.pageInfo.viewMode)"/>
+								</row>
+								<row>
+									<label value="Start Date"/>
+									<datebox value="@bind(fx.endDate)"
+										constraint="no past"
+										disabled="@load(vm.pageInfo.viewMode)"/>
+								</row>
+							</rows>
+						</grid>
+
+					</div>
+				</center>
+			</borderlayout>
+		</window>
+	</div>
+</zk>

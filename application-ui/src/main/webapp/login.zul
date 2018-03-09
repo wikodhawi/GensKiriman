@@ -1,0 +1,65 @@
+<zk>
+	<hbox width="100%" height="100%" pack="center" align="center" 
+	style="background:#eeeeee; min-height:150px;">
+
+		<vbox apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('vm') @init('ui.LoginVmd')"
+			form="@id('fx') @init(vm.formMaster) @load(vm.mstUserHdrDto) @save(vm.mstUserHdrDto, before='login')"
+			height="220px" pack="center" align="center"
+			style="border-radius: 10px 10px 0 0;
+					background:#d00000;
+					-webkit-border-radius: 10px 10px 0 0;">
+
+			<!--  Main Content -->
+			<hbox height="32px" width="100%" pack="center"
+				align="center" style="color:white;">
+				<label value="WELCOME" />
+			</hbox>
+			
+			<hbox onCreate="username.focus()" pack="center"
+				align="center" height="155px" width="398px"
+				style=" background:#ffffff">
+				<vbox width="100%" align="center" pack="center">
+					<hbox>
+						<vbox>
+							<hbox>
+								<vbox width="200px">
+									<textbox
+										constraint="no empty"
+										value="@bind(vm.mstUserHdrDto.employeeCode)" id="username"
+										placeholder="Username" onOK="password.focus()"
+										width="200px" />
+								</vbox>
+							</hbox>
+							<hbox>
+								<vbox width="200px">
+									<textbox 
+										id="password"
+										constraint="no empty"
+										placeholder="password"
+										value="@bind(fx.password)" onOK="@command('login')"
+										type="password" width="200px" />
+								</vbox>
+							</hbox>
+							<space/>
+							<hbox width="80%" pack="center">
+								<vbox width="50px">
+									<label value=" " />
+								</vbox>
+								<button autodisable="self" width="80px" label="Login"
+									style="background:#d00000 !important;"
+									onClick="@command('login')" />
+							</hbox>
+						</vbox>
+					</hbox>
+				</vbox>
+			</hbox>
+			
+			<vbox style="color:#fff; font-size: 8px;" width="100%"
+				pack="center" align="center">
+				<label value="Copyrights 2015. All Rights Reserved."
+					style="color:#fff; font-size: 11px;" />
+			</vbox>
+		</vbox>
+	</hbox>
+</zk>

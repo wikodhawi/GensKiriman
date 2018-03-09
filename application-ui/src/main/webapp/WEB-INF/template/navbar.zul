@@ -1,0 +1,47 @@
+<zk xmlns:x="xhtml">
+
+	<style>
+		.branchMenu .z-menuitem-content .z-menuitem-text{
+		overflow: hidden; 
+		text-size:11px; 
+		text-overflow: ellipsis; 
+		max-width:150px;
+		white-space: nowrap;
+		}
+	</style>
+	<div sclass="navbar">
+
+		<div width="100%" height="45px"
+			apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('vm') @init('ui.template.NavbarVmd')">
+			
+			<!-- Brand Logo -->
+			<hbox style="cursor:default" pack="center" align="center" 
+				height="100%" sclass="pull-left">
+				<image content="@load(vm.companyImage)" width="55px"
+					height="32px"/>
+				<label sclass="app-title"
+					value="@load(vm.companyName)" />
+			</hbox>
+
+			<!-- Navbar -->
+			<hlayout sclass="nav-user pull-right" spacing="0">
+				<div height="45px"
+					style="vertical-align: bottom;  padding-top: 25px;"
+					sclass="page-header">
+					<label style='font-size:12px !important;'
+						value="@load(vm.currentDate)" />
+				</div>
+				<!-- User menu -->
+				<menubar sclass="user-menu light-blue">
+					<menu label="@load(vm.userName)">
+						<menupopup>
+							<menuitem label="Logout"
+								onClick="@command('logout')" iconSclass="z-icon-power-off red" />
+						</menupopup>
+					</menu>
+				</menubar>
+			</hlayout>
+		</div>
+	</div>
+</zk>

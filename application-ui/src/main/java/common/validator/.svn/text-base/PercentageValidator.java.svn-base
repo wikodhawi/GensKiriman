@@ -1,0 +1,40 @@
+package common.ui.validator;
+
+import org.zkoss.bind.ValidationContext;
+import org.zkoss.bind.validator.AbstractValidator;
+import org.zkoss.util.resource.Labels;
+import org.zkoss.zk.ui.util.Clients;
+
+import common.util.ParseUtil;
+
+/**
+ * Validator class for validating percentage.
+ * 
+ * @author Giovanni Umboh
+ * 
+ */
+
+public class PercentageValidator extends AbstractValidator {
+
+	@Override
+	public void validate(ValidationContext ctx) {
+		Double number = ParseUtil.toDouble(ctx.getProperty().getValue());
+
+		if (number != null && (number > Double.valueOf(100.00))) {
+			Clients.wrongValue(ctx.getBindContext().getComponent(),
+					Labels.getLabel("E014"));
+			ctx.setInvalid();
+		}
+
+		String abc = String.valueOf(number);
+		if (abc.contains(".")) {
+			String[] a = abc.split("[.]");
+			if (a[1].length() > 2) {
+				Clients.wrongValue(ctx.getBindContext().getComponent(),
+						Labels.getLabel("E015"));
+				ctx.setInvalid();
+			}
+		}
+
+	}
+}

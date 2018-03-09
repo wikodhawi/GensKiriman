@@ -1,0 +1,59 @@
+I001=Data has been saved successfully
+I002=Data has been deleted successfully
+I003=No data found
+I004=Choose latest version
+I005={0} Data has been sent successfully
+I006=Data is being processed
+I007=No data open or revision status
+I008=Data has been process successfully
+I009=Data has been activate
+I010=Status can't be updated
+I011=Cancel transaction successfully
+I012=Cancel transaction failed
+I013=Data can not be changed because the HC code existing and status is not open
+I014=Status has been updated successfully
+I015={
+Info Batch:
+
+Sent Failed \: {1}
+}
+I016=Password successfully changed
+I017=Data successfully posted
+I018=Data successfully exported
+I019=Hasn't implemented yet
+I020={0} for selected data can't be set, due to its unmatched type.
+I021=The selected sequence has already been set for another type. Please choose another sequence.
+I022=There aren't any upload data yet.
+I023={
+Request No : {0}
+cannot be proccess because have different account no
+I024=No data selected
+I025=No data can be processed
+I026=Please process Payment Number
+I027=Admin parameter value does not exist
+I028=DP Persentage parameter does not exist
+I029=Selling Asumption Persentage Parameter does not exist
+I030=OTR parameter value does not exist
+I031={
+Suceed : {0}
+Failed : {1}
+Reason : {2}
+I032=Request Report sudah terbuat, Tunggu Notifikasi!
+I033=Data has been closed successfully
+I034={
+Data has been saved successfully
+Print?
+I035=Cancel Data successfully
+I036=Cancel Data failed
+I037=Customer with that booking number is write off customer
+I038=Customer with this booking number have been paid all installment, please select other deposit type
+I039={
+Area you are about to duplicate data to all branch within your area,
+Are you sure about that?
+I040=Dealer is not available
+I041={
+There are no other branch in your region has this data,
+nothing to copy
+I042=Close Stock Opname successfully.
+I043=Close Stock Opname failed.
+I054=Data has been process

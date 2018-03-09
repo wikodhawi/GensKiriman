@@ -1,0 +1,148 @@
+package common.ui.validator;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.lang.time.DateUtils;
+import org.zkoss.bind.ValidationContext;
+import org.zkoss.bind.validator.AbstractValidator;
+import org.zkoss.util.resource.Labels;
+import org.zkoss.zk.ui.util.Clients;
+
+/**
+ * Validator class for validating two date that must be in range.
+ * 
+ * ZUL must define @validator with arguments: "compare" : to be filled with
+ * entity model / DTO object property of field "greater" : true if field that to
+ * be validate is greater than "compare" field, false is otherwise. "equal" :
+ * true if equals to be included in comparison. (Ex: greater equal / less equal)
+ * 
+ * Using Example: <label value="Begin Eff" /> <datebox
+ * value="@bind(fx.beginEff)" />
+ * 
+ * <label value="Last Eff" /> <datebox value=
+ * "@load(fx.lastEff) @save(vm.entity.lastEff, before='save')  @validator('dateRange', compare='beginEff', greater=true, equal=false, day=1, month=30, year=2015)"
+ * />
+ * 
+ * 
+ * @author Leo Sendra
+ * 
+ */
+public class DateRangeValidator extends AbstractValidator {
+
+	@Override
+	public void validate(ValidationContext ctx) {
+		String compareProp = (String) ctx.getBindContext().getValidatorArg(
+				"compare");
+		Boolean isGreater = (Boolean) ctx.getBindContext().getValidatorArg(
+				"greater");
+		Boolean isEqual = (Boolean) ctx.getBindContext().getValidatorArg(
+				"equal");
+		Long monthProp = (Long) ctx.getBindContext().getValidatorArg("month");
+		Long dayProp = (Long) ctx.getBindContext().getValidatorArg("day");
+		Long yearProp = (Long) ctx.getBindContext().getValidatorArg("year");
+		Boolean required = (Boolean) ctx.getBindContext().getValidatorArg(
+				"required");
+
+		if (ctx.getProperties(compareProp) == null) {
+			if (required != null && required.booleanValue()) {
+				Clients.wrongValue(ctx.getBindContext().getComponent(),
+						"Tanggal awal dan akhir harus diisi");
+			}
+			return;
+
+		}
+
+		Date compareDateVal = null;
+		Date dateVal = null;
+		
+		try{
+			compareDateVal = DateUtils.truncate( (Date) ctx.getProperties(compareProp)[0]
+					.getValue() ,Calendar.DATE);
+			
+			dateVal =  DateUtils.truncate( (Date) ctx.getProperty().getValue() ,Calendar.DATE);
+		}catch (Exception x){
+			System.out.println("Logger.debug.Date Value NULL ");
+		}
+
+		if (dateVal == null || compareDateVal == null) {
+			if (required != null && required.booleanValue()) {
+				Clients.wrongValue(ctx.getBindContext().getComponent(),
+						"Tanggal awal dan akhir harus diisi");
+			}
+			return;
+		}
+
+		boolean isValid = false;
+		String[] params = new String[1];
+
+		long days = dateVal.getTime() - compareDateVal.getTime();
+		long duration = TimeUnit.MILLISECONDS.toDays(days);		
+		
+		if (isGreater && !isEqual) { // dateVal > compareDateVal
+			if (dateVal.compareTo(compareDateVal) > 0)  
+				isValid = true;						
+		} 
+		else if (isGreater && isEqual) { // dateVal >= compareDateVal
+			if (dateVal.compareTo(compareDateVal) >= 0)  
+				isValid = true;
+		} 
+		else if (!isGreater && !isEqual) { // dateVal < compareDateVal
+			if (dateVal.compareTo(compareDateVal) < 0)  
+				isValid = true;
+		} 
+		else { // dateValue <= compareDateVal
+			if (dateVal.compareTo(compareDateVal) <= 0)  
+				isValid = true;			
+		}
+		
+		if (dayProp != null) {
+			if (duration > dayProp) 
+				isValid = false;
+		} else if (monthProp != null) {
+			if (duration > (monthProp * 31)) 
+				isValid = false;
+		} else if (yearProp != null) {
+			if (duration > (yearProp * 365))
+				isValid = false;
+		}
+
+		if (!isValid) {			
+			if (dayProp != null) {
+				params[0] = dayProp + " hari";
+				if (duration > dayProp) {
+					Clients.wrongValue(ctx.getBindContext().getComponent(),
+							Labels.getLabel("E152", params));
+				} else {
+					Clients.wrongValue(ctx.getBindContext().getComponent(),
+							Labels.getLabel("E006"));
+				}
+			} else if (monthProp != null) {
+				params[0] = monthProp + " bulan";
+				if (duration > (monthProp * 31)) {
+					Clients.wrongValue(ctx.getBindContext().getComponent(),
+							Labels.getLabel("E152", params));
+				} else {
+					Clients.wrongValue(ctx.getBindContext().getComponent(),
+							Labels.getLabel("E006"));
+				}
+			} else if (yearProp != null) {
+				params[0] = yearProp + " tahun";
+				if (duration > (yearProp * 365)) {
+					Clients.wrongValue(ctx.getBindContext().getComponent(),
+							Labels.getLabel("E152", params));
+				} else {
+					Clients.wrongValue(ctx.getBindContext().getComponent(),
+							Labels.getLabel("E006"));
+				}
+			} else {
+				Clients.wrongValue(ctx.getBindContext().getComponent(),
+						Labels.getLabel("E006"));
+			}
+			ctx.setInvalid();
+		} else {
+			Clients.clearWrongValue(ctx.getBindContext().getComponent());
+		}
+	}
+}

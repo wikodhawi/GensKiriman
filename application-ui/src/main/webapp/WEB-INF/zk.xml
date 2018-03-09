@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<system-config>
+
+		<label-location>/WEB-INF/common_app.properties</label-location>
+		<label-location>/WEB-INF/i18n/app_lbl.properties</label-location>
+		<label-location>/WEB-INF/i18n/general_lbl.properties</label-location>
+		<label-location>/WEB-INF/i18n/info_msg.properties</label-location>
+		<label-location>/WEB-INF/i18n/warning_msg.properties</label-location>
+		<label-location>/WEB-INF/i18n/error_msg.properties</label-location>
+		<label-location>/WEB-INF/i18n/confirm_msg.properties</label-location>
+		<label-location>/WEB-INF/i18n/zk_custom.properties</label-location>
+		<label-location>/WEB-INF/application.properties</label-location>
+
+
+		<ui-factory-class>org.zkoss.zk.ui.http.SerializableUiFactory
+		</ui-factory-class>
+	</system-config>
+	
+	 <language-config>
+	    <addon-uri>/WEB-INF/lang-addon.xml</addon-uri>        
+	</language-config>
+
+	<library-property>
+		<name>org.zkoss.web.preferred.locale</name>
+		<value>in</value>
+	</library-property>
+
+	<library-property>
+		<name>org.zkoss.bind.appValidators</name>
+		<value>
+	email=common.validator.EmailValidator,
+	notEmpty=common.validator.NotEmptyValidator,
+<!-- 	dateRange=common.validator.DateRangeValidator, -->
+	numericRange=common.validator.NumericRangeValidator,
+	costumDateRange=common.validator.CostumDateRangeValidator,
+<!-- 	percentage=common.validator.PercentageValidator, -->
+	numeric=common.validator.NumericValidator,
+	numberMaxLength=common.validator.NumberMaxLengthValidator,
+	alphabet=common.validator.AlphabetValidator,
+<!-- 	integerMaxLength=common.validator.IntegerMaxLengthValidator, -->
+	policeNumber=common.validator.PoliceNumberValidator
+		</value>
+	</library-property>
+
+	<library-property>
+		<name>org.zkoss.web.preferred.dateFormatInfo</name>
+		<value>common.formatter.DefaultDateFormat</value>
+	</library-property>
+
+	<library-property>
+		<name>org.zkoss.bind.appConverters</name>
+		<value>
+			dateConverter=common.formatter.DateConverterUtil,
+			decimalConverter=common.formatter.DecimalConverterUtil,
+			dateTimeConverter=common.formatter.DateTimeConverterUtil,
+			bigDecimalConverter=common.formatter.BigDecimalConverterUtil
+
+		</value>
+	</library-property>
+
+	<listener>
+		<listener-class>org.zkoss.zkmax.au.InaccessibleWidgetBlockService$DesktopInit
+		</listener-class>
+	</listener>
+
+	<library-property>
+		<name>org.zkoss.zkmax.au.IWBS.events</name>
+		<value>onClick,onChange,onSelect</value>
+	</library-property>
+
+	<desktop-config>
+<!-- 		<disable-theme-uri>~./zul/css/zk.wcs</disable-theme-uri> -->
+		<theme-uri>/fonts/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff
+		</theme-uri>
+		<theme-uri>/fonts/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff
+		</theme-uri>
+		<theme-uri>/css/a.css.dsp</theme-uri>
+		<theme-uri>/css/absolutelayout.css.dsp</theme-uri>
+		<theme-uri>/css/anchorlayout.css.dsp</theme-uri>
+		<theme-uri>/css/auxhead.css.dsp</theme-uri>
+		<theme-uri>/css/badge.css.dsp</theme-uri>
+		<theme-uri>/css/borderlayout.css.dsp</theme-uri>
+		<theme-uri>/css/box.css.dsp</theme-uri>
+		<theme-uri>/css/button.css.dsp</theme-uri>
+		<theme-uri>/css/calendar.css.dsp</theme-uri>
+		<theme-uri>/css/caption.css.dsp</theme-uri>
+		<theme-uri>/css/color.css.dsp</theme-uri>
+		<theme-uri>/css/combo.css.dsp</theme-uri>
+		<theme-uri>/css/combobutton.css.dsp</theme-uri>
+		<theme-uri>/css/custom.css.dsp</theme-uri>
+		<theme-uri>/css/fonts.css</theme-uri>
+		<theme-uri>/css/font-awesome.css</theme-uri>
+		<theme-uri>/css/frozen.css.dsp</theme-uri>
+		<theme-uri>/css/grid.css.dsp</theme-uri>
+		<theme-uri>/css/groupbox.css.dsp</theme-uri>
+		<theme-uri>/css/input.css.dsp</theme-uri>
+		<theme-uri>/css/layout.css.dsp</theme-uri>
+		<theme-uri>/css/listbox.css.dsp</theme-uri>
+		<theme-uri>/css/menu.css.dsp</theme-uri>
+		<theme-uri>/css/navbar.css.dsp</theme-uri>
+		<theme-uri>/css/nav-user.css.dsp</theme-uri>
+		<theme-uri>/css/norm.css.dsp</theme-uri>
+		<theme-uri>/css/paging.css.dsp</theme-uri>
+		<theme-uri>/css/panel.css.dsp</theme-uri>
+		<theme-uri>/css/popup.css.dsp</theme-uri>
+		<theme-uri>/css/progressmeter.css.dsp</theme-uri>
+		<theme-uri>/css/separator.css.dsp</theme-uri>
+		<theme-uri>/css/slider.css.dsp</theme-uri>
+		<theme-uri>/css/tabbox.css.dsp</theme-uri>
+		<theme-uri>/css/tree.css.dsp</theme-uri>
+		<theme-uri>/css/toolbar.css.dsp</theme-uri>
+		<theme-uri>/css/user-menu.css.dsp</theme-uri>
+		<theme-uri>/css/window.css.dsp</theme-uri>
+	</desktop-config>
+	<library-property>
+        <name>org.zkoss.zul.image.preload</name>
+        <value>true</value>
+    </library-property>
+</zk>

@@ -1,0 +1,71 @@
+<zk>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('ui.master.GensHargaKirimanVmd5')">
+
+		<window id="winRunFormat" width="45%" height="55%" mode="modal"
+			form="@id('fx') @init(vm.formMaster) @load(vm.gensHargaKirimanDto) @save(vm.gensHargaKirimanDto, before='save')">
+
+			<borderlayout height="100%">
+				<north sclass="borderless">
+					<div sclass="page-header">
+						<!-- TITLE AREA -->
+						<include
+							src="WEB-INF/template/toolbarTitleDetail.zul" />
+						<!-- TITLE AREA -->
+
+						<hbox>
+							<!-- BUTTON AREA -->
+							<hbox width="100%">
+								<button sclass="btn-index"
+									iconSclass="z-icon-save" tooltiptext="${labels.save}"
+									visible="@load(vm.pageInfo.addMode or vm.pageInfo.editMode)"
+									onClick="@command('save')" />
+								<button sclass="btn-index"
+									iconSclass="z-icon-times" tooltiptext="${labels.cancel}"
+									visible="@load(vm.pageInfo.addMode or vm.pageInfo.editMode)"
+									onClick="@command(fxStatus.dirty? 'showDirty' : 'back')" />
+								<button sclass="btn-index"
+									iconSclass="z-icon-reply" tooltiptext="${labels.exit}"
+									onClick="@command('back')"
+									visible="@load(vm.pageInfo.viewMode eq true)" />
+							</hbox>
+
+							<!-- BUTTON AREA -->
+						</hbox>
+						<separator spacing="2px" />
+					</div>
+				</north>
+
+				<!-- CONTENT AREA START -->
+				<center sclass="borderless" autoscroll="true">
+					<div>
+						<grid>
+							<columns>
+								<column hflex="1" />
+								<column hflex="2" />
+							</columns>
+							<rows>
+								<row>
+									<label value="Kode Kiriman" />
+									<textbox value="@bind(fx.kodeKiriman)"
+										constraint="no empty" disabled="@load(vm.pageInfo.viewMode)" />
+								</row>
+								<row>
+									<label value="Jenis Kiriman" />
+									<textbox value="@bind(fx.jenisKiriman)"
+										constraint="no empty" disabled="@load(vm.pageInfo.viewMode)" />
+								</row>
+								<row>
+									<label value="Harga Per Skor" />
+									<textbox value="@bind(fx.hargaPerSkor)"
+										constraint="no empty" disabled="@load(vm.pageInfo.viewMode)" />
+								</row>
+								</rows>
+						</grid>
+
+					</div>
+				</center>
+			</borderlayout>
+		</window>
+	</div>
+</zk>

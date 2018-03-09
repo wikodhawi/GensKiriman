@@ -1,0 +1,137 @@
+<zk>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('ui.master.GensKirimanVmd')">
+
+		<window id="winRunFormat" width="45%" height="75%" mode="modal"
+			form="@id('fx') @init(vm.formMaster) @load(vm.gensKirimanDto) @save(vm.gensKirimanDto, before='save')">
+			
+			
+			<borderlayout height="100%">
+				<north sclass="borderless">
+					<div sclass="page-header">
+						<!-- TITLE AREA -->
+						<include
+							src="WEB-INF/template/toolbarTitleDetail.zul" />
+						<!-- TITLE AREA -->
+						
+						<hbox>
+							<!-- BUTTON AREA -->
+							<hbox width="100%">
+								<button sclass="btn-index"
+									iconSclass="z-icon-save" tooltiptext="${labels.save}"
+									visible="@load(vm.pageInfo.addMode or vm.pageInfo.editMode)"
+									onClick="@command('save')" />
+								<button sclass="btn-index"
+									iconSclass="z-icon-times" tooltiptext="${labels.cancel}"
+									visible="@load(vm.pageInfo.addMode or vm.pageInfo.editMode)"
+									onClick="@command(fxStatus.dirty? 'showDirty' : 'back')" />
+								<button sclass="btn-index"
+									iconSclass="z-icon-reply" tooltiptext="${labels.exit}"
+									onClick="@command('back')"
+									visible="@load(vm.pageInfo.viewMode eq true)" />
+							</hbox>
+
+							<!-- BUTTON AREA -->
+						</hbox>
+						
+						<separator spacing="2px" />
+					</div>
+				</north>
+
+				<!-- CONTENT AREA START -->
+				<center sclass="borderless" autoscroll="true">
+					<div>
+						<vlayout
+						form="@id('gx') @init(vm.formMaster2) @load(vm.kotaAsalDto) @save(vm.kotaAsalDto, before='save')"
+						>
+							<vlayout
+							form="@id('hx') @init(vm.formMaster2) @load(vm.kotaTujuanDto) @save(vm.kotaTujuanDto, before='save')"
+							>
+						<grid>
+							<columns>
+								<column hflex="1" />
+								<column hflex="2" />
+								<column hflex="3" />
+							</columns>
+							<rows>
+								<row>
+									<label value="ID" />
+									<textbox value="@bind(fx.id)"
+									disabled="true" />
+								</row>
+								<row>
+									<label value="Jenis Kiriman" />
+									<combobox model="@load(vm.gensHargaKirimanDtos)" selectedItem="@bind(vm.gensHargaKirimanDto)"
+										value="@bind(vm.gensHargaKirimanDto.jenisKiriman)">
+											<template name="model">
+												<comboitem label="@bind(each.jenisKiriman)" value="@bind(each.hargaPerSkor)"></comboitem>
+											</template>
+									</combobox>
+								</row>
+								<row>
+									<label value="Nama Pengirim" />
+									<textbox
+										value="@bind(fx.namaPengirim)" constraint="no empty"
+										disabled="@load(vm.pageInfo.viewMode)" />
+								</row>
+								<row>
+									<label value="Alamat Asal" />
+									<textbox
+										value="@bind(fx.alamatAsal)" constraint="no empty"
+										disabled="@load(vm.pageInfo.viewMode)" />
+								</row>
+								<row>
+									<label value="Nama Penerima" />
+									<textbox
+										value="@bind(fx.namaPenerima)" constraint="no empty"
+										disabled="@load(vm.pageInfo.viewMode)" />
+								</row>
+								<row>
+									<label value="Alamat Tujuan" />
+									<textbox
+										value="@bind(fx.alamatTujuan)" constraint="no empty"
+										disabled="@load(vm.pageInfo.viewMode)" />
+								</row>
+								<row>
+									<label value="Kode Wilayah Asal" />
+									<hlayout>
+										<textbox
+										value="@bind(gx.namaWilayahKotaAsal)" readonly="false" />
+										<button iconSclass="z-icon-plus"
+										sclass="btn-lov-white"
+									onClick="@command('showLov', popup='/WEB-INF/application-pages/lov/WilayahLovKotaAsal.zul',lovHandler='gensWilayahHandler')" />
+									</hlayout>
+								</row>
+								<row>
+									<label value="Kode Wilayah Tujuan" />
+									<hlayout>
+										<textbox
+										value="@bind(hx.namaWilayahKotaTujuan)" disabled="false" />
+										<button iconSclass="z-icon-plus"
+											sclass="btn-lov-white"
+										onClick="@command('showLov', popup='/WEB-INF/application-pages/lov/WilayahLovKotaTujuan.zul',lovHandler='gensWilayahHandler2')" />
+									</hlayout>
+								</row>
+								<row>
+									<label value="Berat" />
+									<intbox placeholder="dalam kg" value="@bind(vm.bobot)" onChange="@command('calculateHarga')"></intbox>
+								</row>
+								<row>
+									<label value="Harga Jenis" />
+									<textbox readonly="true" value="@bind(vm.gensHargaKirimanDto.hargaPerSkor)"></textbox>
+								</row>
+								<row>
+									<label value="Harga Total" />
+									<textbox readonly="true" value="@bind(vm.totalHarga)"></textbox>
+								</row>
+							</rows>
+						</grid>
+						</vlayout>
+						</vlayout>
+					</div>
+				</center>
+			</borderlayout>
+			
+		</window>
+	</div>
+</zk>

@@ -1,0 +1,17 @@
+<hlayout>
+	<hbox align="end">
+		<hbox pack="center" align="center" height="25px">
+			<button label="${labels.filter }" sclass="btn-trans"
+				onClick="@command('toggleAdvSearch')"
+				visible="@load(vm.showAdvSearch)" />
+			<button label="${labels.filter }" sclass="btn-gold"
+				onClick="@command('toggleAdvSearch')"
+				visible="@load(vm.showAdvSearch eq true? false : true)" />
+		</hbox>
+		<div sclass="adv-search-icon">
+			<icon type="fa-search" sclass="gold" style="font-size:20px" />
+		</div>
+		<textbox placeholder="${labels.search }" maxlength="50"
+			value="@bind(vm.search)" onOK="@command('sortAndSearch')" />
+	</hbox>
+</hlayout>

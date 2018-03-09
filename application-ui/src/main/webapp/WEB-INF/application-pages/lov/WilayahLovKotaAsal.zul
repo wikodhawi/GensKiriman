@@ -1,0 +1,48 @@
+
+<?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<zk>
+	<window id="lov" mode="modal" apply="org.zkoss.bind.BindComposer" 
+		viewModel="@id('vm') @init('ui.lov.GensWilayahLovKotaAsalVmd')" closable="true" width="50%">
+		
+		<!-- TITLE AREA -->
+		<vbox hflex="1" width="50%" align="end">
+			<include src="/WEB-INF/template/toolbarLov.zul"/>
+		</vbox>	
+		
+		<!-- TOOLBAR AREA -->
+		
+		<!-- CONTENT AREA -->
+		<div width="100%" style="overflow:auto">
+		<listbox sizedByContent="true" model="@bind(vm.gensWilayahDtos)" emptyMessage="${labels.I003}"
+			selectedItem="@bind(vm.gensWilayahDto)">
+		<listhead>
+			<listheader label="${labels.kodeWilayah}" sort="auto(kodeWilayah)"
+				onSort="@command('sort', col='kodeWilayah')"/>
+			<listheader label="${labels.namaWilayah}" sort="auto(namaWilayah)"
+				onSort="@command('sort', col='namaWilayah')"/>
+			<listheader label="${labels.latitude}" sort="auto(latitude)"
+				onSort="@command('sort', col='latitude')"/>
+			<listheader label="${labels.longitude}" sort="auto(longitude)"
+				onSort="@command('sort', col='longitude')"/>
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="@bind(each.kodeWilayah)"
+					onDoubleClick="@command('choose')"/>
+				<listcell label="@bind(each.namaWilayah)"
+					onDoubleClick="@command('choose')"/>
+				<listcell label="@bind(each.latitude)"
+					onDoubleClick="@command('choose')"/>
+				<listcell label="@bind(each.longitude)"
+					onDoubleClick="@command('choose')"/>
+			</listitem>
+		</template>
+		</listbox>
+		</div>
+		<hbox>
+			<space spacing="20px"/>
+			<paging pageSize="@load(vm.pageSize)"
+				totalSize="@load(vm.totalSize)" activePage="@bind(vm.activePage)"/>
+		</hbox>
+	</window>
+</zk>

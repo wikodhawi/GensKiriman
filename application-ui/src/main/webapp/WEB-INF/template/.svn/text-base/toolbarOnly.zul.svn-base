@@ -1,0 +1,7 @@
+<zk>
+	<hbox width="100%" hflex="1" sclass="index-line">
+		<div sclass="page-header" hflex="1">
+			<label value="@load(vm.pageInfo.title)" />
+		</div>
+	</hbox>
+</zk>

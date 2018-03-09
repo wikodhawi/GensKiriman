@@ -1,0 +1,124 @@
+<zk xmlns:x="xhtml">
+
+	<style>
+		.branchMenu .z-menuitem-content .z-menuitem-text{
+		overflow: hidden; 
+		text-size:11px; 
+		text-overflow: ellipsis; 
+		max-width:150px;
+		white-space: nowrap;
+		}
+	</style>
+	<div sclass="navbar">
+
+		<div width="100%" height="45px"
+			apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('vm') @init('common.ui.viewmodel.NavbarVmd')">
+			
+			<timer onTimer="@command('runJob')"  delay="120000" repeats="true" />
+
+			<!-- Brand Logo -->
+			<hbox style="cursor:default" pack="center" align="center" 
+				height="100%" sclass="pull-left">
+				<image content="@load(vm.companyImage)" width="55px"
+					height="32px" if="${vm.companyImage ne null}" />
+				<label sclass="app-title"
+					value="${labels.applicationName} - ${vm.companyName}" />
+			</hbox>
+
+			<!-- Navbar -->
+			<hlayout sclass="nav-user pull-right" spacing="0" hflex="1">				
+				<div height="45px"
+					style="vertical-align: bottom;  padding-top: 25px;"
+					sclass="page-header">
+					<label style='font-size:12px !important;'
+						value="@load(vm.currentDate)" />
+				</div>
+
+				<!-- Notification -->
+				<a id="notif" iconSclass="z-icon-envelope-o"
+					popup="msgpp, position=after_end, type=toggle" sclass="gray"
+					onClick="@command('openNotification')">
+					<label id="notifLabel" value="@load(vm.totalUnreadUserNotification)" sclass="badge" />
+				</a>
+
+				<!-- Task -->
+				<a id="task" iconSclass="z-icon-bell" sclass="purple"
+					popup="userTask, position=after_end, type=toggle">
+					<label value="@load(vm.totalUserTask)"
+						sclass="badge" />
+				</a>
+
+				<popup id="userTask" sclass="menu " width="300px">
+					<vlayout spacing="0" children="@load(vm.listUserTask)" style="overflow:auto !important; max-height:500px">
+						<template name="children">
+							<hbox tooltiptext="@load(each.processName)" onClick="@command('openTaskMenu', userTask=each)" align="center" width="260px" height="35px" style="border-bottom:1px solid #ccc; cursor:pointer;">
+								<hbox hflex="6">
+									<label style="overflow: hidden; text-size:11px; text-overflow: ellipsis; display: block; width:230px; white-space: nowrap;"
+											value="@load(each.processName)"/>
+								</hbox>
+								<hbox hflex="1" pack="end">
+									<label value="@load(each.totalTask)"
+									class="badge pull-right"
+									style="background-color: #3a87ad !important; overflow: hidden;text-size:10px; text-overflow: ellipsis; display: block; max-width:30px;" />
+								</hbox>
+							</hbox>
+<!-- 							<a onClick="@command('openTaskMenu', userTask=each)" label="" style="cursor:pointer;" > -->
+<!-- 							<hbox width="250px" height="35px" align="center"> -->
+<!-- 								<label style="color: red; overflow: hidden; text-overflow: ellipsis; display: block; width:inherit; white-space: nowrap;"  -->
+<!-- 								value="@load(each.processName)"/> -->
+<!-- 							</hbox> -->
+<!-- 							<label value="@load(each.totalTask)" -->
+<!-- 								class="badge pull-right" -->
+<!-- 								style="background-color: #3a87ad !important;" /> -->
+<!-- 							</a> -->
+						</template>
+					</vlayout>
+					
+					<hbox width="100%" height="100%" style="padding: 3px 0 5px 0;" pack="center" align="center">
+						<a label="${labels.refresh }" onClick="@command('getUserTask')" href="#"  zclass="refresh-user-task">
+							<space width="5px" /><span class="z-icon-refresh"/>
+						</a>
+					</hbox>
+				</popup>
+
+				<!-- Branch -->
+				<hbox sclass="user-menu green"
+					style="cursor:pointer; color:#FFF !important;"
+					popup="branch, after_end">
+					<icon type="fa-th-large" style="font-size:18px; " />
+					<label
+						value="@load(vm.currentUserBranch.branchName)"
+						style="font-size:13px;" />
+					<icon type="fa-caret-down" style="font-size:18px" />
+				</hbox>
+				<menupopup id="branch" 
+					children="@load(vm.listUserBranch)" style="width: 200px; max-height:500px; overflow:auto">
+					<template name="children">
+						<menuitem label="@load(each.branchName)" sclass="branchMenu"
+							value="@load(each.branchCode)" iconSclass="z-icon-list-alt green"
+							onClick="@command('chooseBranch', selectedBranch=each)" />
+					</template>
+				</menupopup>
+
+				<!-- User menu -->
+				<hbox sclass="user-menu light-blue"
+					style="cursor:pointer; color:#FFF !important;"
+					popup="user, after_end" >
+					<icon type="fa-user" style="font-size:18px; " />
+					<vlayout style="min-width:100px; max-width:150px;">
+						<label multiline="true"
+							value="${sessionScope.user.userRealName}"
+							style="font-size:13px; overflow: hidden; text-overflow: ellipsis; width:150px; white-space: nowrap;" />
+					</vlayout>
+					<icon type="fa-caret-down" style="font-size:18px" />
+				</hbox>
+
+				<menupopup id="user">
+					<menuitem label="${labels.portal }"
+						onClick="@command('logout')" iconSclass="z-icon-home light-blue" />
+				</menupopup>
+			</hlayout>
+		</div>
+	</div>
+</zk>

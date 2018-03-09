@@ -1,0 +1,95 @@
+<zk>
+	<div>
+
+		<window id="winRunFormat" width="45%" height="65%" mode="modal"
+			viewModel="@id('vm') @init('ui.master.HomeVmd')"
+			closable="true"
+			>
+			
+			
+			<borderlayout height="100%">
+				<north sclass="borderless">
+					<div sclass="page-header">
+						<!-- TITLE AREA -->
+						<include
+							src="WEB-INF/template/toolbarTitleDetail.zul" />
+						<!-- TITLE AREA -->
+						
+						<hbox>
+							<!-- BUTTON AREA -->
+							<hbox width="100%">
+								<button sclass="btn-index"
+									iconSclass="z-icon-reply" tooltiptext="${labels.exit}"
+									onClick="@command('back')"
+									visible="@load(vm.pageInfo.viewMode eq true)" />
+							</hbox>
+
+							<!-- BUTTON AREA -->
+						</hbox>
+						
+						<separator spacing="2px" />
+					</div>
+				</north>
+
+				<!-- CONTENT AREA START -->
+				<center sclass="borderless" autoscroll="true">
+					<div>
+						<grid>
+							<columns>
+								<column hflex="1" />
+								<column hflex="2" />
+								<column hflex="3" />
+							</columns>
+							<rows>
+								<row>
+									<label value="ID" />
+									<label value="@load(vm.gensKirimanDto.id)"/>
+								</row>
+								<row>
+									<label value="Jenis Kiriman" />
+									<label value=""/>
+								</row>
+								<row>
+									<label value="Nama Pengirim" />
+									<label value=""/>
+								</row>
+								<row>
+									<label value="Alamat Asal" />
+									<label value=""/>
+								</row>
+								<row>
+									<label value="Nama Penerima" />
+									<label value=""/>
+								</row>
+								<row>
+									<label value="Alamat Tujuan" />
+									<label value=""/>
+								</row>
+								<row>
+									<label value="Kode Wilayah Asal" />
+								</row>
+								<row>
+									<label value="Kode Wilayah Tujuan" />
+									<label value=""/>
+								</row>
+								<row>
+									<label value="Berat" />
+									<label value=""/>
+								</row>
+								<row>
+									<label value="Harga Jenis" />
+									<label value=""/>
+								</row>
+								<row>
+									<label value="Harga Total" />
+									<label value=""/>
+								</row>
+							</rows>
+						</grid>
+					</div>
+				</center>
+			</borderlayout>
+			
+		</window>
+	</div>
+</zk>

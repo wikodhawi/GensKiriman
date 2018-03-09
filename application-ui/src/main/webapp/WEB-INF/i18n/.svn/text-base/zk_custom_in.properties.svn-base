@@ -1,0 +1,109 @@
+#
+# Validation #
+#
+#-=EMPTY_NOT_ALLOWED
+MZul.2000=*
+#-=NO_POSITIVE_NEGATIVE_ZERO
+MZul.2001=Harus bilangan positif
+#-=NO_POSITIVE_NEGATIVE
+MZul.2002=Harus 0
+#-=NO_POSITIVE_ZERO
+MZul.2003=Harus bilangan negatif
+#-=NO_POSITIVE
+MZul.2004=Harus bilangan negatif atau 0
+#-=NO_NEGATIVE_ZERO
+MZul.2005=Harus bilangan positif
+#-=NO_NEGATIVE
+MZul.2006=Harus bilangan positif atau 0
+#-=NO_ZERO
+MZul.2007=Tidak boleh 0
+
+#-=NO_FUTURE_PAST_TODAY
+MZul.2011=Harus kosong
+#-=NO_FUTURE_PAST
+MZul.2012=Harus tanggal sekarang
+#-=NO_FUTURE_TODAY
+MZul.2013=Harus tanggal lampau
+#-=NO_FUTURE
+MZul.2014=Harus tanggal lampau atau sekarang
+#-=NO_PAST_TODAY
+MZul.2015=Harus tanggal yang akan datang
+#-=NO_PAST
+MZul.2016=Harus tanggal yang akan datang atau sekarang
+#-=NO_TODAY
+MZul.2017=Tidak boleh tanggal sekarang
+#-=VALUE_NOT_MATCHED
+MZul.2018=Hanya nilai di drop-down list yang diijinkan
+
+#
+# Messagebox #
+#
+#-=OK
+MZul.2200=OK
+#-=CANCEL
+MZul.2201=Batal
+#-=YES
+MZul.2220=Ya
+#-=NO
+MZul.2221=Tidak
+#-=RETRY
+MZul.2230=Coba lagi
+#-=ABORT
+MZul.2231=Batal
+#-=IGNORE
+MZul.2232=Abaikan
+#-=RELOAD
+MZul.2233=Muat Ulang
+
+#
+# Paging #
+#
+#-=FIRST
+MZul.2300=Awal
+#-=LAST
+MZul.2301=Akhir
+#-=PREV
+MZul.2302=Sebelum
+#-=NEXT
+MZul.2303=Berikut
+
+#
+# Common #
+#
+#-=PLEASE_WAIT
+MZul.2400=Sedang Memuat...
+
+#
+# Grid #
+#
+#-=GRID_GROUP
+MZul.2500=Grup
+#-=GRID_OTHER
+MZul.2501=Lainnya
+#-=GRID_ASC
+MZul.2502=Urut Naik
+#-=GRID_DESC
+MZul.2503=Urut Turun
+#-=GRID_COLUMNS
+MZul.2504=Kolom
+#-=GRID_UNGROUP
+MZul.2505=Lepas Grup
+
+
+#-=UPDATE_OBSOLETE_PAGE
+MZk.1010={
+Halaman atau komponen yang anda minta sudah tidak ada : {0}.
+Hal ini biasa terjadi karena timeout, atau membuka terlalu banyak halaman Web.
+Anda harus membuka kembali halaman ini dan dicoba lagi.
+}
+
+MZul.1010={
+The resource you request fdsfasfsasa no longer available: {0}.
+This is normally caused by timeout, or opening too many Web pages.
+You have to reload the page and try again.
+
+#-=NOT_FOUND
+MZk.3000={0} tidak ditemukan.
+
+#-=TOO_MANY_REQUESTS
+MZk.3101=Terlalu banyak permintaan

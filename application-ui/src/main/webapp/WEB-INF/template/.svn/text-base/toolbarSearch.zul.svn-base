@@ -1,0 +1,7 @@
+<hbox align="end">
+	<vbox pack="center" align="center" width="25px" height="25px">
+		<icon type="fa-search" sclass="gold" style="font-size:20px;" />
+	</vbox>
+	<textbox placeholder="${labels.search }" value="@bind(vm.search)"
+		maxlength="50" onOK="@command('sortAndSearch')" />
+</hbox>

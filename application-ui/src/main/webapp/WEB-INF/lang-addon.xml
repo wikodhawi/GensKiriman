@@ -1,0 +1,29 @@
+<language-addon>
+	<addon-name>mytextbox</addon-name>
+	<language-name>xul/html</language-name>
+
+	<component>
+		<component-name>textbox</component-name>
+		<!-- Note here should map your qualified class name (full class name with 
+			package) -->
+		<component-class>common.component.MyTextbox</component-class>
+		<extends>textbox</extends>
+	</component>
+	
+    <component>
+        <component-name>button</component-name>
+        <extends>button</extends>
+        <property>
+            <property-name>autodisable</property-name>
+            <property-value>self</property-value>
+        </property>
+    </component>
+      <component>
+        <component-name>listbox</component-name>
+        <extends>listbox</extends>
+        <property>
+            <property-name>sizedByContent</property-name>
+            <property-value>true</property-value>
+        </property>
+    </component>
+</language-addon>

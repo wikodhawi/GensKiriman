@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/mfin/common/common-spring-lib/!svn/ver/9/common-spring-lib/src/main/java/common/spring/mapper/converter
+END
+StringToBooleanConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/mfin/common/common-spring-lib/!svn/ver/9/common-spring-lib/src/main/java/common/spring/mapper/converter/StringToBooleanConverter.java
+END
+IntegerToBooleanConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/mfin/common/common-spring-lib/!svn/ver/3/common-spring-lib/src/main/java/common/spring/mapper/converter/IntegerToBooleanConverter.java
+END

@@ -1,0 +1,186 @@
+<zk>
+	<!-- Refresh, serah terima, Lihat, Tambah, Ubah, Hapus, Cetak, Kirim,  -->
+	<button sclass="btn-index" iconSclass="z-icon-refresh"
+		tooltiptext="${labels.refresh}" onClick="@command('refresh')"
+		visible="${vm.pageInfo.menuButton['refresh']}"
+		disabled="@load(not vm.pageInfo.userButton['refresh'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-exchange"
+		tooltiptext="${labels.exchange}" onClick="@command('exchange')"
+		visible="${vm.pageInfo.menuButton['exchange']}"
+		disabled="@load(not vm.pageInfo.userButton['exchange'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-eye"
+		tooltiptext="${labels.view}" onClick="@command('view')"
+		visible="${vm.pageInfo.menuButton['view']}"
+		disabled="@load(not vm.pageInfo.userButton['view'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-plus"
+		tooltiptext="${labels.add}" onClick="@command('add')"
+		visible="${vm.pageInfo.menuButton['add']}"
+		disabled="@load(not vm.pageInfo.userButton['add'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-pencil"
+		tooltiptext="${labels.edit}" onClick="@command('edit')"
+		visible="${vm.pageInfo.menuButton['edit']}"
+		disabled="@load(not vm.pageInfo.userButton['edit'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-trash-o"
+		tooltiptext="${labels.delete}" onClick="@command('delete')"
+		visible="${vm.pageInfo.menuButton['delete']}"
+		disabled="@load(not vm.pageInfo.userButton['delete'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-print"
+		tooltiptext="${labels.print}" onClick="@command('print')"
+		visible="${vm.pageInfo.menuButton['print']}"
+		disabled="@load(not vm.pageInfo.userButton['print'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-check-square-o"
+		tooltiptext="${labels.choice}" onClick="@command('choice')"
+		visible="${vm.pageInfo.menuButton['choice']}"
+		disabled="@load(not vm.pageInfo.userButton['choice'])" />
+
+	<button sclass="btn-index" image="images/icon_reject_blue.png"
+		hoverImage="images/icon_reject_blue_hover.png"
+		tooltiptext="${labels.reject}" onClick="@command('reject')"
+		visible="${vm.pageInfo.menuButton['reject']}"
+		disabled="@load(not vm.pageInfo.userButton['reject'])" />
+
+	<button sclass="btn-index" image="images/icon_kirim_blue.png"
+		hoverImage="images/icon_kirim_blue_hover.png"
+		tooltiptext="${labels.send}" onClick="@command('send')"
+		visible="${vm.pageInfo.menuButton['send']}"
+		disabled="@load(not vm.pageInfo.userButton['send'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-download"
+		tooltiptext="${labels.download}" onClick="@command('download')"
+		visible="${vm.pageInfo.menuButton['download']}"
+		disabled="@load(not vm.pageInfo.userButton['download'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-upload"
+		tooltiptext="${labels.upload}" onClick="@command('upload')"
+		visible="${vm.pageInfo.menuButton['upload']}"
+		disabled="@load(not vm.pageInfo.userButton['upload'])" />
+
+	<button sclass="btn-index" image="images/icon_proses_blue.png"
+		hoverImage="images/icon_proses_blue_hover.png"
+		tooltiptext="${labels.process}" onClick="@command('process')"
+		visible="${vm.pageInfo.menuButton['process']}"
+		disabled="@load(not vm.pageInfo.userButton['process'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-times"
+		tooltiptext="${labels.cancel}" onClick="@command('cancel')"
+		visible="${vm.pageInfo.menuButton['cancel']}"
+		disabled="@load(not vm.pageInfo.userButton['cancel'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-edit"
+		tooltiptext="${labels.detail}" onClick="@command('detail')"
+		visible="${vm.pageInfo.menuButton['detail']}"
+		disabled="@load(not vm.pageInfo.userButton['detail'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-save"
+		tooltiptext="${labels.save}" onClick="@command('save')"
+		visible="${vm.pageInfo.menuButton['save']}"
+		disabled="@load(not vm.pageInfo.userButton['save'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-reply"
+		tooltiptext="${labels.back}" onClick="@command('back')"
+		visible="${vm.pageInfo.menuButton['back']}"
+		disabled="@load(not vm.pageInfo.userButton['back'])" />
+
+	<button sclass="btn-index" image="images/icon_finish_blue.png"
+		hoverImage="images/icon_finish_blue_hover.png"
+		tooltiptext="${labels.finish}" onClick="@command('finish')"
+		visible="${vm.pageInfo.menuButton['finish']}"
+		disabled="@load(not vm.pageInfo.userButton['finish'])" />
+
+	<button sclass="btn-index" image="images/icon_active_blue.png"
+		hoverImage="images/icon_active_blue_hover.png"
+		tooltiptext="${labels.flagActive}" onClick="@command('active')"
+		visible="${vm.pageInfo.menuButton['active']}"
+		disabled="@load(not vm.pageInfo.userButton['active'])" />
+
+	<button sclass="btn-index" image="images/icon_post_blue.png"
+		hoverImage="images/icon_post_blue_hover.png"
+		tooltiptext="${labels.posting}" onClick="@command('posting')"
+		visible="${vm.pageInfo.menuButton['posting']}"
+		disabled="@load(not vm.pageInfo.userButton['posting'])" />
+
+	<button sclass="btn-index" iconSclass="z-icon-book"
+		tooltiptext="${labels.closing}" onClick="@command('closing')"
+		visible="${vm.pageInfo.menuButton['closing']}"
+		disabled="@load(not vm.pageInfo.userButton['closing'])" />
+
+	<!-- BUTTON SPK -->
+	<button sclass="btn-index" iconSclass="z-file-text-o"
+		tooltiptext="${labels.spk}" onClick="@command('sendSpk')"
+		visible="${vm.pageInfo.menuButton['SPK']}"
+		disabled="@load(not vm.pageInfo.userButton['SPK'])" />
+
+	<!-- BUTTON STOK OPNAM -->
+	<button sclass="btn-index" iconSclass="z-icon-bank"
+		tooltiptext="${labels.spk}" onClick="@command('sendSpk')"
+		visible="${vm.pageInfo.menuButton['sendSpk']}"
+		disabled="@load(not vm.pageInfo.userButton['sendSpk'])" />
+
+	<!-- BUTTON PROCESS STOK OPNAM -->
+	<button sclass="btn-index" iconSclass="z-icon-envelope"
+		tooltiptext="${labels.spk}" onClick="@command('stockOpname')"
+		visible="${vm.pageInfo.menuButton['stockOpname']}"
+		disabled="@load(not vm.pageInfo.userButton['stockOpname'])" />
+
+	<!-- BUTTON ALASAN SELISIH -->
+	<button sclass="btn-index" iconSclass="z-icon-exchange"
+		tooltiptext="${labels.spk}" onClick="@command('unbalanceReason')"
+		visible="${vm.pageInfo.menuButton['unbalanceReason']}"
+		disabled="@load(not vm.pageInfo.userButton['unbalanceReason'])" />
+
+	<!-- BUTTON PENYELESAIAN STOK OPNAM -->
+	<button sclass="btn-index" iconSclass="z-icon-balance-scale"
+		tooltiptext="${labels.spk}" onClick="@command('stockOpnameFixing')"
+		visible="${vm.pageInfo.menuButton['stockOpnameFixing']}"
+		disabled="@load(not vm.pageInfo.userButton['stockOpnameFixing'])" />
+
+	<!-- BUTTON TUTUP STOK OPNAM -->
+	<button sclass="btn-index" iconSclass="z-icon-book"
+		tooltiptext="${labels.spk}" onClick="@command('closeStockOpnam')"
+		visible="${vm.pageInfo.menuButton['closeStockOpnam']}"
+		disabled="@load(not vm.pageInfo.userButton['closeStockOpnam'])" />
+
+	<!-- BUTTON BAYAR -->
+	<button sclass="btn-index" iconSclass="z-icon-dollar"
+		tooltiptext="${labels.pay}" onClick="@command('pay')"
+		visible="${vm.pageInfo.menuButton['pay']}"
+		disabled="@load(not vm.pageInfo.userButton['pay'])" />
+		
+	<!-- BUTTON DAFTAR PERMINTAAN BARANG -->
+	<button sclass="btn-index" iconSclass="z-icon-book"
+		tooltiptext="${labels.goodsdemandlist}" onClick="@command('daftarmintabarang')"
+		visible="${vm.pageInfo.menuButton['daftar']}"
+		disabled="@load(not vm.pageInfo.userButton['daftar'])" />
+
+	<!-- BUTTON EXPORT -->
+	<button sclass="btn-index" iconSclass="z-icon-external-link"
+		tooltiptext="${labels.export}" onClick="@command('export')"
+		visible="${vm.pageInfo.menuButton['export']}"
+		disabled="@load(not vm.pageInfo.userButton['export'])" />
+
+	<!-- BUTTON HISTORY PERSETUJUAN -->
+	<button sclass="btn-index" iconSclass="z-icon-user-md"
+		tooltiptext="History Persetujuan" onClick="@command('showLov', popup='/WEB-INF/pages/lov/historyApprovalLov.zul',lovHandler='historyApproval')"
+		visible="${vm.pageInfo.menuButton['historypersetujuan']}"
+		disabled="@load(not vm.pageInfo.userButton['historypersetujuan'])" />
+
+
+		
+	
+		
+		
+		
+	
+	
+		
+		
+		
+	
+</zk>

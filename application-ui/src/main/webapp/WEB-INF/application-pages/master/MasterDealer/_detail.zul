@@ -1,0 +1,159 @@
+<zk>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('ui.master.MasterDealerVmd')">
+
+		<window id="winRunFormat" width="45%" height="55%" mode="modal"
+			form="@id('fx') @init(vm.formMaster) @load(vm.mstDealerDto) @save(vm.mstDealerDto, before='save')">
+
+			<borderlayout height="100%">
+				<north sclass="borderless">
+					<div sclass="page-header">
+						<!-- TITLE AREA -->
+						<include
+							src="WEB-INF/template/toolbarTitleDetail.zul" />
+						<!-- TITLE AREA -->
+
+						<hbox>
+							<!-- BUTTON AREA -->
+							<hbox width="100%">
+								<button sclass="btn-index"
+									iconSclass="z-icon-save" tooltiptext="${labels.save}"
+									visible="@load(vm.pageInfo.addMode or vm.pageInfo.editMode)"
+									onClick="@command('save')" />
+								<button sclass="btn-index"
+									iconSclass="z-icon-times" tooltiptext="${labels.cancel}"
+									visible="@load(vm.pageInfo.addMode or vm.pageInfo.editMode)"
+									onClick="@command(fxStatus.dirty? 'showDirty' : 'back')" />
+								<button sclass="btn-index"
+									iconSclass="z-icon-reply" tooltiptext="${labels.exit}"
+									onClick="@command('back')"
+									visible="@load(vm.pageInfo.viewMode eq true)" />
+							</hbox>
+
+							<!-- BUTTON AREA -->
+						</hbox>
+						<separator spacing="2px" />
+					</div>
+				</north>
+
+				<!-- CONTENT AREA START -->
+				<center sclass="borderless" autoscroll="true">
+					<div>
+						<grid>
+							<columns>
+								<column hflex="1" />
+								<column hflex="2" />
+							</columns>
+							<rows>
+								<row>
+									<label
+										value="${ labels.dealerCode}" />
+									<textbox
+										value="@bind(fx.dealerCode)" disabled="true" />
+								</row>
+								<row>
+									<label
+										value="${ labels.dealerName}" />
+									<textbox
+										value="@bind(fx.dealerName)" constraint="no empty"
+										disabled="@load(vm.pageInfo.viewMode)" />
+								</row>
+								<row>
+									<label value="Nama Dagang" />
+									<textbox value="@bind(fx.tradeName)"
+										constraint="no empty" disabled="@load(vm.pageInfo.viewMode)" />
+								</row>
+								<row>
+									<label value="${ labels.address}" />
+									<textbox value="@bind(fx.address)"
+										constraint="no empty" disabled="@load(vm.pageInfo.viewMode)" />
+								</row>
+								<row>
+									<label value="Kelurahan" />
+									<textbox value="@bind(fx.kelCode)"
+										constraint="no empty" disabled="@load(vm.pageInfo.viewMode)" />
+								</row>
+								<row>
+									<label value="No. Telp" />
+									<hlayout>
+										<textbox
+											value="@bind(fx.phoneArea1)" constraint="no empty" hflex="1"
+											disabled="@load(vm.pageInfo.viewMode)" />
+										<textbox
+											value="@bind(fx.phoneNo1)" constraint="no empty" hflex="2"
+											disabled="@load(vm.pageInfo.viewMode)" />
+									</hlayout>
+								</row>
+								<row>
+									<label
+										value="${labels.groupDealer }" />
+									<hlayout>
+										<textbox
+											value="@bind(fx.groupDealerCode)" disabled="true" />
+										<button iconSclass="z-icon-plus"
+											sclass="btn-lov-white"
+											onClick="@command('showLov', popup='/WEB-INF/application-pages/lov/GroupDealerLov.zul',lovHandler='groupDealerHandler')" />
+									</hlayout>
+								</row>
+								<row>
+									<label value="${labels.company }" />
+									<combobox constraint="no empty"
+										sclass="@load(vm.pageInfo.viewMode ? '' : 'req')"
+										model="@load(vm.corporates)" readonly="true"
+										selectedItem="@bind(vm.corporate) @save(vm.corporate, before='saveCoy')">
+										<template name="model">
+											<comboitem
+												label="@load(each.paramDescrip)"
+												value="@load(each.paramCode)" />
+										</template>
+									</combobox>
+								</row>
+								<row>
+									<label
+										value="${labels.dealerKind }" />
+									<combobox constraint="no empty"
+										sclass="@load(vm.pageInfo.viewMode ? '' : 'req')"
+										model="@load(vm.dealerKinds)" readonly="true"
+										selectedItem="@bind(vm.dealerKind) @save(vm.dealerKind, before='saveCoy')">
+										<template name="model">
+											<comboitem
+												label="@load(each.paramDescrip)"
+												value="@load(each.paramCode)" />
+										</template>
+									</combobox>
+								</row>
+								<row>
+									<label value="Tipe Dealer" />
+									<combobox constraint="no empty"
+										sclass="@load(vm.pageInfo.viewMode ? '' : 'req')"
+										model="@load(vm.dealerTypes)" readonly="true"
+										selectedItem="@bind(vm.dealerType) @save(vm.dealerType, before='saveCoy')">
+										<template name="model">
+											<comboitem
+												label="@load(each.paramDescrip)"
+												value="@load(each.paramCode)" />
+										</template>
+									</combobox>
+								</row>
+								<row>
+									<label value="Kategori Dealer" />
+									<combobox constraint="no empty"
+										sclass="@load(vm.pageInfo.viewMode ? '' : 'req')"
+										model="@load(vm.dealerCategorys)" readonly="true"
+										selectedItem="@bind(vm.dealerCategory) @save(vm.dealerCategory, before='saveCoy')">
+										<template name="model">
+											<comboitem
+												label="@load(each.paramDescrip)"
+												value="@load(each.paramCode)" />
+										</template>
+									</combobox>
+								</row>
+							</rows>
+						</grid>
+
+					</div>
+				</center>
+			</borderlayout>
+		</window>
+	</div>
+</zk>

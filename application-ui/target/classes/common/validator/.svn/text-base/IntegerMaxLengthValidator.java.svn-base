@@ -1,0 +1,42 @@
+package common.ui.validator;
+
+import java.math.BigDecimal;
+import java.math.MathContext;
+
+import org.zkoss.bind.ValidationContext;
+import org.zkoss.bind.validator.AbstractValidator;
+import org.zkoss.util.resource.Labels;
+import org.zkoss.zk.ui.util.Clients;
+import org.zkoss.zul.Messagebox;
+
+import common.util.ParseUtil;
+
+public class IntegerMaxLengthValidator extends AbstractValidator{
+
+	@Override
+	public void validate(ValidationContext ctx) {
+		long tot = (long)ctx.getBindContext().getValidatorArg("tot");	
+		BigDecimal numberX = ParseUtil.toBigdecimal(ctx.getProperty().getValue());
+		try {
+			String numberStr = String.valueOf(numberX);
+			String[] splitter = null;
+			if(numberStr.indexOf(".") >= 0){
+				splitter = numberStr.toString().split("\\.");
+			}else{
+				splitter = new String[]{numberStr, "0"};
+			}
+			
+			Integer n = Integer.parseInt(splitter[1]);
+			if(n>0){
+				Clients.wrongValue(ctx.getBindContext().getComponent(),
+						Labels.getLabel("E148"));
+				ctx.setInvalid();
+			}else if (splitter[0].length() >= tot){
+				Clients.wrongValue(ctx.getBindContext().getComponent(), Labels.getLabel("E041", new String[]{String.valueOf(tot)}));
+				ctx.setInvalid();
+			}
+		} catch (Exception e) {
+			
+		}
+	}
+}

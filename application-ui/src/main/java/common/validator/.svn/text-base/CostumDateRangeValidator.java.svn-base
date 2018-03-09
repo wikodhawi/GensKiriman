@@ -1,0 +1,80 @@
+package common.ui.validator;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.zkoss.bind.ValidationContext;
+import org.zkoss.bind.validator.AbstractValidator;
+import org.zkoss.util.resource.Labels;
+import org.zkoss.zk.ui.util.Clients;
+
+/**
+ * Validator class for validating two date that must be in range.
+ *  
+ * ZUL must define @costumValidator with arguments: 
+ * "compare" : to be filled with entity model / DTO object property of field 
+ * "greater" : true if field that to be validate is greater than "compare" field, false is otherwise. 
+ * "equal" : true if equals to be included in comparison. (Ex: greater equal / less equal)
+ * "format" : string format for costume datebox
+ * 
+ * Using Example:
+ *		<label value="Begin Eff" />
+ *		<datebox value="@bind(fx.beginEff)"    />
+ *		
+ *		<label value="Last Eff" />
+ *		<datebox value="@load(fx.lastEff) @save(vm.entity.lastEff, before='save')  @validator('costumDateRange', compare='beginEff', greater=true, equal=false, format='MM/yyyy')"  />
+ *
+ *
+ * @author Leo Sendra costum By yogie
+ * 
+ */
+
+public class CostumDateRangeValidator extends AbstractValidator {
+	@Override
+	public void validate(ValidationContext ctx) {
+		String compareProp = (String) ctx.getBindContext().getValidatorArg(
+				"compare");
+		Boolean isGreater = (Boolean) ctx.getBindContext().getValidatorArg(
+				"greater");
+		Boolean isEqual = (Boolean) ctx.getBindContext().getValidatorArg(
+				"equal");
+		String formatDate = (String) ctx.getBindContext().getValidatorArg(
+				"format");
+				
+		boolean isValid = false;
+		
+		if (ctx.getProperties(compareProp) == null) return;
+		
+		if ((Date) ctx.getProperties(compareProp)[0]
+				.getValue() == null || (Date) ctx.getProperty().getValue()==null) return;
+		
+		SimpleDateFormat sdf = new SimpleDateFormat(formatDate);
+		String sdfStart = sdf.format((Date) ctx.getProperties(compareProp)[0]
+				.getValue());
+		String sdfEnd = sdf.format((Date) ctx.getProperty().getValue());
+		
+		
+		
+		if (isGreater && !isEqual) { // dateVal > compareDateVal
+			if (sdfEnd.compareTo(sdfStart) > 0)
+				isValid = true;
+		} else if (isGreater && isEqual) { // dateVal >= compareDateVal
+			if (sdfEnd.compareTo(sdfStart) >= 0)
+				isValid = true;
+		} else if (!isGreater && !isEqual) { // dateVal < compareDateVal
+			if (sdfEnd.compareTo(sdfStart) < 0)
+				isValid = true;
+		} else { // dateValue <= compareDateVal
+			if (sdfEnd.compareTo(sdfStart) <= 0)
+				isValid = true;
+		}
+		
+		if (!isValid) {
+			Clients.wrongValue(ctx.getBindContext().getComponent(),
+					Labels.getLabel("E006"));
+			ctx.setInvalid();
+		} else {
+			Clients.clearWrongValue(ctx.getBindContext().getComponent());
+		}
+	}
+}

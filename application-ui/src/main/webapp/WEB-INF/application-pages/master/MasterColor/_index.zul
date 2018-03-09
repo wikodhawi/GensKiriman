@@ -1,0 +1,52 @@
+<zk>
+	<vlayout width="100%" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('ui.master.MasterColorVmd')">
+
+		<separator height="2px" />
+
+		<hbox hflex="2" width="100%" pack="center">
+			<vbox hflex="1" width="55%">
+				<hbox>
+					<!-- BUTTON AREA START -->
+					<include src="WEB-INF/template/toolbarButton.zul" />
+					<!-- BUTTON AREA END -->
+				</hbox>
+			</vbox>
+			<vbox hflex="1" width="55%">
+				<hbox>
+					<!-- BUTTON AREA START -->
+
+					<!-- BUTTON AREA END -->
+				</hbox>
+			</vbox>
+
+			<!-- SEARCH BOX AREA START -->
+			<include src="WEB-INF/template/toolbarSearchFilter.zul" />
+			<!-- SEARCH BOX AREA END -->
+			<space />
+		</hbox>
+		<!-- TOOLBAR AREA END -->
+
+		<include src="WEB-INF/template/toolbarTitle.zul" />
+		
+			<hlayout style="
+					padding-left:20px ">
+				<listbox model="@load(vm.indexDtos)"
+					selectedItem="@bind(vm.mstColorDtoSelected)"
+					emptyMessage="${labels.I003 }">
+					<listhead sizable="true">
+						<listheader label="Kode Warna" />
+						<listheader label="Nama Warna"/>
+						<listheader label="Alias Nama Warna"/>
+					</listhead>
+					<template name="model">
+						<listitem>
+							<listcell label="@load(each.colorCode)" />
+							<listcell label="@load(each.colorDescrip)" />
+							<listcell label="@load(each.aliasName)" />
+						</listitem>
+					</template>
+				</listbox>
+			</hlayout>
+	</vlayout>
+</zk>

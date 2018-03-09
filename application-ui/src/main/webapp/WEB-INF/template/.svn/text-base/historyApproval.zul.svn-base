@@ -1,0 +1,23 @@
+<listbox model="@bind(vm.trxApprovalDtos)"
+	emptyMessage="${labels.I003 }" mold="paging" pageSize="${labels.pageSize }" sizedByContent="true">
+	<listhead sizable="true">
+		<listheader label="${labels.employeeName}"
+			sort="auto(employeeName)" />
+		<listheader label="${labels.positionName}"
+			sort="auto(positionName)" />
+		<listheader label="${labels.status}" sort="auto(decisionSts)" />
+		<listheader label="${labels.decisionDateLb}"
+			sort="auto(decisionDate)" />
+		<listheader label="${labels.reasonLog}" sort="auto(reasonLog)" />
+	</listhead>
+	<template name="model">
+		<listitem>
+			<listcell label="@bind(each.employeeName)" />
+			<listcell label="@bind(each.positionName)" />
+			<listcell label="@bind(each.status)" />
+			<listcell
+				label="@bind(each.decisionDate) @converter('dateTimeConverter')" />
+			<listcell label="@bind(each.reasonLog)" />
+		</listitem>
+	</template>
+</listbox>

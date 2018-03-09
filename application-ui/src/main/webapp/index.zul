@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TITLE PAGE -->
+<?page id="index"?>
+<?init class="common.util.loginChecker"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/WEB-INF/template/template.zul"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('ui.template.IndexVmd')">
+		<include mode="instant" id="mainInclude"
+			self="@define(mainContent)" src="/WEB-INF/pages/home.zul" />
+	</div>
+</zk>

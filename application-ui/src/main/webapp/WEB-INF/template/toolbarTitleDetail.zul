@@ -1,0 +1,10 @@
+<zk>
+	<div sclass="page-header">
+		<label value="@load(vm.pageInfo.title)" />
+		<zk if="${vm.pageInfo.operation ne ''}">
+			<icon type="fa-angle-double-right"  />
+			<label value="@load(vm.pageInfo.operation)"
+				sclass="subtitle" />
+		</zk>
+	</div>
+</zk>

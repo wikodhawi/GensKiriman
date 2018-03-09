@@ -1,0 +1,36 @@
+@import "header.less";
+
+.navbar {
+	margin: 0;
+	padding: 0 20px;
+	border: 0;
+	border-botom: 1px solid @baseColor solid;
+	min-height: @navBarHeight;
+	position: relative;
+	/* background: #438eb9; */
+	background: @whiteColor; 
+	border-radius:0;
+	box-shadow:none;
+	
+	.navbar-brand {
+		color: @blackColor;
+		font-size: 20px;
+		text-shadow: none;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		letter-spacing: 1px;
+	}
+
+}
+
+
+.navbar .navbar-brand:hover,.navbar .navbar-brand:focus {
+	color: @blackColor;
+}
+
+.app-title {
+  color: @blackColor !important;
+  font-size: @fontTitleSize !important;
+  font-weight: bold !important;
+//  font-family: Open Sans;
+}

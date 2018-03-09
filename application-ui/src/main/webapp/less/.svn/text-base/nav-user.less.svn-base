@@ -1,0 +1,175 @@
+@import "header.less";
+
+.nav-user>div>a,.nav-user>div .user-menu {
+	background-color: @greyBgColor;
+	color: @whiteColor;
+	display: block;
+	line-height: @navBarHeight;
+	height: @navBarHeight;
+	border-left: 3px solid @whiteColor;
+	text-align: center;
+	width: auto;
+//	min-width: 50px;
+	padding: 0 8px;
+	position: relative;
+}
+
+.nav-user>div>a .z-menu-selected,.nav-user>div .user-menu .z-menu-selected
+	{
+	color: @whiteColor !important;
+}
+
+.nav-user>div>a.grey,.nav-user>div .user-menu.grey {
+	background-color: @greyBgColor ! important;
+}
+
+.nav-user>div>a.grey.open,.nav-user>div .user-menu.grey.open,.nav-user>div>a.grey:hover,.nav-user>div .user-menu.grey:hover,.nav-user>div>a.grey:focus,.nav-user>div .user-menu.grey:focus,.nav-user>div>a.grey .z-menu-selected,.nav-user>div .user-menu.grey .z-menu-selected
+	{
+	background-color: @greyBgColorOpen ! important;
+	text-decoration: none;
+}
+
+.nav-user>div>a.purple,.nav-user>div .user-menu.purple {
+	background-color: @purpleBgColor ! important;
+}
+
+.nav-user>div>a.purple.open,.nav-user>div .user-menu.purple.open,.nav-user>div>a.purple:hover,.nav-user>div .user-menu.purple:hover,.nav-user>div>a.purple:focus,.nav-user>div .user-menu.purple:focus,.nav-user>div>a.purple .z-menu-selected,.nav-user>div .user-menu.purple .z-menu-selected
+	{
+	background-color: @purpleBgColorHover ! important;
+	text-decoration: none;
+}
+
+.nav-user>div>a.green,.nav-user>div .user-menu.green {
+	background-color: @greenBgColor ! important;
+}
+
+.nav-user>div>a.green.open,.nav-user>div .user-menu.green.open,.nav-user>div>a.green:hover,.nav-user>div .user-menu.green:hover,.nav-user>div>a.green:focus,.nav-user>div .user-menu.green:focus,.nav-user>div>a.green .z-menu-selected,.nav-user>div .user-menu.green .z-menu-selected
+	{
+	background-color: @greenBgColorHover ! important;
+	text-decoration: none;
+}
+.nav-user>div>a.light-blue,.nav-user>div .user-menu.light-blue {
+	background-color: @lightBlueBgColor ! important;
+}
+
+.nav-user>div>a.light-blue.open,.nav-user>div .user-menu.light-blue.open,.nav-user>div>a.light-blue:hover,.nav-user>div .user-menu.light-blue:hover,.nav-user>div>a.light-blue:focus,.nav-user>div .user-menu.light-blue:focus,.nav-user>div>a.light-blue .z-menu-selected,.nav-user>div .user-menu.light-blue .z-menu-selected
+	{
+	background-color: @lightBlueHoveBgColor ! important;
+	text-decoration: none;
+}
+.nav-user>div>a.margin-4,.nav-user>div .user-menu.margin-4 {
+	margin-left: 4px;
+}
+
+.nav-user>div>a.margin-3,.nav-user>div .user-menu.margin-3 {
+	margin-left: 3px;
+}
+
+.nav-user>div>a.margin-2,.nav-user>div .user-menu.margin-2 {
+	margin-left: 2px;
+}
+
+.nav-user>div>a.margin-1,.nav-user>div .user-menu.margin-1 {
+	margin-left: 1px;
+}
+
+.nav-user>div>a.no-border,.nav-user>div .user-menu.no-border {
+	border: none !important;
+}
+
+.nav-user>div .badge {
+	position: relative;
+	top: -4px;
+	left: 2px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.nav-user>div>a:hover,.nav-user>div>a:focus {
+	background-color: @greyBgColorOpen;
+}
+
+.nav-user>div .user-menu.z-menubar {
+	padding: 0;
+	border: 0;
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	/* border-left: 1px solid #DDD; */
+	border-left: 3px solid @whiteColor;
+}
+
+.nav-user>div .user-menu.z-menubar img {
+	margin: 0 8px 0 0; 
+//	${t: borderRadius('100%')};
+	border: 2px solid @whiteColor;  
+	max-width: 40px;
+
+}
+.nav-user>div .user-menu.z-menubar .z-menu-content {
+	line-height: 45px;
+	height: 45px;
+	border: 0;
+	padding: 0 8px;
+}
+
+.nav-user>div .user-menu.z-menubar .z-menu-content [class*="z-icon-"] {
+	display: inline-block;
+	width: 1.25em;
+	text-align: center;
+}
+
+.nav-user>div .user-menu.z-menubar .z-menu:hover,.nav-user>div .user-menu.z-menubar .z-menu-content:hover,.nav-user>div .user-menu.z-menubar .z-menu:focus,.nav-user>div .user-menu.z-menubar .z-menu-content:focus
+	{
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.nav-user>div .user-menu.z-menubar .z-menu {
+	margin: 0;
+}
+
+.nav-user>div .user-menu.z-menubar .z-menu-selected>.z-menu-content,.nav-user>div .user-menu.z-menubar .z-menu-content:active
+	{
+	border: 0; 
+	.boxShadow(none);
+	background: none;
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.nav-user>div .user-menu.z-menubar .z-menu-text {
+//	max-width: 100px;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+	text-align: left;
+	vertical-align: top;
+	line-height: 15px;
+	position: relative;
+	top: 13px;
+	color: @whiteColor;
+	margin-right:20px;
+	font-size: 13px;
+	height: 20px;
+	text-decoration: none;
+}
+
+.nav-user>div .user-menu.z-menubar .z-menu-icon {
+	top: 0;
+	right: 5px;
+}
+
+.nav-user>div .user-menu.z-menubar .z-menu-text {
+	text-shadow: none;
+}
+
+.nav-user>div [class*="z-icon-"] {
+	font-size: 16px;
+	color: @whiteColor;
+	display: inline-block;
+	width: 20px;
+	text-align: center;
+}
+
+.nav-user>div:first-child>a {
+	border-left: none;
+}

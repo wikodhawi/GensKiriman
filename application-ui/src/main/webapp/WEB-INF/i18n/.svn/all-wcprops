@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/mfin/common/common-ui-zk-template/!svn/ver/4353/common-ui-zk-template/src/main/webapp/WEB-INF/i18n
+END
+info_msg.properties
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/mfin/common/common-ui-zk-template/!svn/ver/4284/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/info_msg.properties
+END
+general_lbl.properties
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/mfin/common/common-ui-zk-template/!svn/ver/4160/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/general_lbl.properties
+END
+zk_custom.properties
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/mfin/common/common-ui-zk-template/!svn/ver/1271/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/zk_custom.properties
+END
+warning_msg.properties
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/mfin/common/common-ui-zk-template/!svn/ver/4352/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/warning_msg.properties
+END
+app_lbl_in.properties
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/mfin/common/common-ui-zk-template/!svn/ver/4353/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/app_lbl_in.properties
+END
+error_msg_in.properties
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/mfin/common/common-ui-zk-template/!svn/ver/4324/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/error_msg_in.properties
+END
+error_msg.properties
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/mfin/common/common-ui-zk-template/!svn/ver/4325/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/error_msg.properties
+END
+app_lbl.properties
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/mfin/common/common-ui-zk-template/!svn/ver/4353/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/app_lbl.properties
+END
+warning_msg_in.properties
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/mfin/common/common-ui-zk-template/!svn/ver/4351/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/warning_msg_in.properties
+END
+zk_custom_in.properties
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/mfin/common/common-ui-zk-template/!svn/ver/1272/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/zk_custom_in.properties
+END
+general_lbl_in.properties
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/mfin/common/common-ui-zk-template/!svn/ver/4160/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/general_lbl_in.properties
+END
+info_msg_in.properties
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/mfin/common/common-ui-zk-template/!svn/ver/4303/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/info_msg_in.properties
+END
+confirm_msg_in.properties
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/mfin/common/common-ui-zk-template/!svn/ver/3846/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/confirm_msg_in.properties
+END
+confirm_msg.properties
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/mfin/common/common-ui-zk-template/!svn/ver/3846/common-ui-zk-template/src/main/webapp/WEB-INF/i18n/confirm_msg.properties
+END

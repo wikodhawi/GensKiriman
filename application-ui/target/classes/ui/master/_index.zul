@@ -1,0 +1,138 @@
+<zk>
+	<vlayout width="100%" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('ui.master.HomeVmd')">
+		<vlayout
+		form="@id('fx') @init(vm.formMaster) @load(vm.kotaAsalDto) @save(vm.kotaAsalDto, before='save')"
+		>
+			<vlayout
+			form="@id('gx') @init(vm.formMaster) @load(vm.kotaTujuanDto) @save(vm.kotaTujuanDto, before='save')"
+			>
+
+				<separator height="2px" />
+		
+				<hbox hflex="2" width="100%" pack="center">
+					<vbox hflex="1" width="55%">
+						<hbox>
+							<!-- BUTTON AREA START -->
+							<include src="WEB-INF/template/toolbarButton.zul" />
+							<!-- BUTTON AREA END -->
+						</hbox>
+					</vbox>
+					<vbox hflex="1" width="55%">
+						<hbox>
+							<!-- BUTTON AREA START -->
+		
+							<!-- BUTTON AREA END -->
+						</hbox>
+					</vbox>
+		
+					<!-- SEARCH BOX AREA START -->
+					<include src="WEB-INF/template/toolbarSearchFilter.zul" />
+					<!-- SEARCH BOX AREA END -->
+					<space />
+				</hbox>
+				<!-- TOOLBAR AREA END -->
+		
+				<include src="WEB-INF/template/toolbarTitle.zul" />
+				
+					
+					<listbox>
+							<listitem>
+								<listcell>
+									
+								</listcell>
+								<listcell>
+									<label value="Prakiraan Harga"></label>
+								</listcell>
+							</listitem>
+					</listbox>
+					
+					<separator></separator>
+					<separator></separator>
+					
+				
+					<hlayout style="
+							padding-left:20px ">
+							
+						
+						
+						<listbox id="box" > 
+							
+							<listitem> 
+								<listcell>
+									<label value="Kota Asal"></label>
+								</listcell>
+								<listcell>
+									<textbox
+										value="@bind(fx.namaWilayahKotaAsal)" readonly="false" />
+									
+								</listcell>
+								<listcell>
+									<button iconSclass="z-icon-plus"
+										sclass="btn-lov-white"
+									onClick="@command('showLov', popup='/WEB-INF/application-pages/lov/WilayahLovKotaAsal.zul',lovHandler='gensWilayahHandler')" />
+								</listcell>
+							</listitem>
+							
+							<listitem> 
+								<listcell>
+									<label value="Kota Tujuan"></label>
+								</listcell>
+								<listcell>
+									<textbox
+										value="@bind(gx.namaWilayahKotaTujuan)" disabled="false" />
+									
+								</listcell>
+								<listcell>
+									<button iconSclass="z-icon-plus"
+										sclass="btn-lov-white"
+									onClick="@command('showLov', popup='/WEB-INF/application-pages/lov/WilayahLovKotaTujuan.zul',lovHandler='gensWilayahHandler2')" />
+								</listcell>
+							</listitem>
+							
+							<listitem> 
+								<listcell>
+									<label value="bobot"></label>
+								</listcell>
+								<listcell>
+									<intbox placeholder="dalam kg" value="@bind(vm.bobot)" onChange="@command('calculateHarga')"></intbox>
+								</listcell>
+							</listitem>
+							
+							<listitem> 
+								<listcell>
+									<label value="Jenis Kiriman"></label>
+								</listcell>
+								<listcell>
+									<combobox model="@load(vm.gensHargaKirimanDtos)" selectedItem="@bind(vm.gensHargaKirimanDto)"
+										value="@bind(vm.gensHargaKirimanDto.jenisKiriman)" onChange="@command('calculateHarga')">
+											<template name="model">
+												<comboitem label="@bind(each.jenisKiriman)" value="@bind(each.hargaPerSkor)"></comboitem>
+											</template>
+									</combobox>
+								</listcell>
+							</listitem>
+							
+							<listitem> 
+								<listcell>
+									<label value="Harga Per Kilo"></label>
+								</listcell>
+								<listcell>
+									<textbox readonly="true" value="@bind(vm.gensHargaKirimanDto.hargaPerSkor)"></textbox>
+								</listcell>
+							</listitem>
+							
+							<listitem> 
+								<listcell>
+									<label value="Harga"></label>
+								</listcell>
+								<listcell>
+									<textbox readonly="true" value="@bind(vm.totalHarga)"></textbox>
+								</listcell>
+							</listitem>
+						</listbox>
+				</hlayout>
+			</vlayout>
+		</vlayout>
+	</vlayout>
+</zk>

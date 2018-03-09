@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<style>
+		/*.z-treerow:nth-child(even) {background: #F9F9FF}*/
+		.z-tree-icon .z-tree-open { background-image:
+		url(data:image/gif;base64,R0lGODlhNwA3AMQfAJvU7wCN1On2+8vo9h2e2qrb8QCQ1fH5/fj8/jep3orO7Cih22S85SKd2rvi9NTt+HzH6QCT1lq440iv4XPD6A2U1kKu3waU1waR1U+y4eDy+g+X2ACV1z6r3v///////yH5BAEAAB8ALAAAAAA3ADcAAAX/4CeOZGmeaKqubOu+cCzPdG3feK7vfO//QJ1m0lgYj8hF5xE0QQKGqHQaDRAGiKx2q81RIpxIYEwuhwmQtHqtdiBulOgCoqjbFYBJIBzp+/99Vkw2cQEZBx6JiokCemWPYwZhFw5wBgETAoubAgwJn6ChHQthG5WEl5mbmwgHrq+wBw4XBqaWmJqrursDtLaouLvCm721pzWFqsPLxRsDt8q7DwPU1dYDALQXANfd3gckybm6CgsN5+jpDQQc7QRJ8PEU4anjmwUYUJBlku1U/wDH0Au2akCDPZf2KVxIBoy/BgOjKdLQASGDAgAyatzIsSPHAgwkRcDwbIQ4Vgz2/xhCtKzlxAUGIhgo4CGiPQ8KAshcoMGlz0YqIYCzuahAhSimfLpEkJJDAAlDiSZ6cHAkAKUuczrleeKkBwEWVFJAgHWZUZnOUHhtGsDCzbKbHhCQNLNm13oeAMQM0OABXGEUEUJ4ozaVrA1RKtD8qwuBBJ0GMhAu/PRBgpgYFDDe9URmAgEr4hiwYAGMAQlkN9+jFWHDIBVx2pn+rJoYAZ0YHNiF3Y+DgSu1F2lIoBLAZN6ykwZPdOCxUwbHVUDoZyCBx+vYN7LtANpF03a0GIp/dMl3Xxhh/QBcz/5fAMUxHKwjQL++/fv489tfUCB6k/8ABijggAQWaOCBCCao4AiCDDboYAohAAA7);
+		background-size: cover; width: 100%; } .z-tree-icon
+		.z-tree-close { background-image:
+		url(data:image/gif;base64,R0lGODlhNwA3AMQfAC+m3ReZ2MPm9QCR1QCM1Fe242O85bni9PX7/qzb8oTK6uHy+nPD6Lbf8/z+/pbS7kmy4gyU1tLs+ACT1wSS1tvw+QqX2EWw4e/4/ej2+yGg2wWU1zyr3wCV1////////yH5BAEAAB8ALAAAAAA3ADcAAAX/4CeOZGmeaKqubOu+cCzPdG3feK7vfO//wJyDEbEYj0jLBrAIlhaBwWRAqFqrUgJAsuh6v92M57bQTDqWgHqttgw6g8AFQq/bLwXBuFYeDAwCgYKBBxcEUxOJiouJAxcZNn0DDx6VlpYVHFebVm8THBU2GRp+CpenHhkPCqytrgocUhcYMwgVDQkBUwYHCb6/vw3Cw8TDBX4ACQfFFQgrBgEUFB3UE9LX2Nna12fUG9/gFAEGKwEb1H7p6uvs7e5vHRsBKwAWZ2z4+fr7+R0TFgBWFHBj4cGBgwgTKlzIcGECghBWMIhCQQ+qixgzWpKwYcK4FQkAlNJIsqSHB340/zxYIeCCHwMmY15k4IeDgBUVjjmSydOSTggSViBQkBJBT5kOYg1gAEkFggcb4kg4GhMDqQEKnKlwICDCgAgNqJqU4CbCA60pPFQgRYGSWJINvEaYusJBBpFL35J8QGGAhgp7nELwA0GvRpoTAFRw0MJAXwBGDV/8iXYFX7+AJZ9K+vKFADcBDmg+NWoABQUvJEQxO/qS6gEbGryw6odBa0sJ5N50gUBpgduVLgcI5cKBgZoYEChfzry58+dDkNF6gdJjAQPYs2vfzr27ATMDOFRmkcATp/Po078ZUIDxiwoU0sufv2klDAcJCujfz7+////+KTCdEwQWaOCBCCao4A6CDDbo4IMQRijhhC2EAAA7);
+		background-size: cover; width: 100%; } /*remove the font awesome
+		icon*/ .z-tree-icon .z-tree-open::before, .z-tree-icon
+		.z-tree-close::before { content: ''; }
+
+	</style>
+
+	<div width="100%" height="100%" vflex="true"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vs') @init('common.ui.viewmodel.SidebarVmd')">
+		<tabbox id="tb" width="100%" height="100%"  mold="accordion">		
+			<tabs id="tbs" align="center"
+				children="@load(vs.listMenuAccordion)">
+				<template name="children">
+					<tab label="@load(each.title)" iconSclass="@load(each.icon)" />
+				</template>
+			</tabs>
+
+			<!-- Menu Tab Panel -->
+			<tabpanels children="@load(vs.listMenuTreeModel)">
+
+				<template name="children">
+					<tabpanel>					
+						<vlayout height="100%">
+							<tree model="@load(each)" sizedByContent="true"
+								vflex="1">
+								<template name="model" var="item">
+									<treeitem  height="500px">
+										<treerow>
+											<treecell
+												label="@load(item.data.menuTitle)"
+												onClick="@command('toogleTree', tree = self.tree)"
+												if="${item.data.menuType eq 'G'}" />
+												
+											<treecell
+												context="m_${item.data.menuCode }" label="@load(item.data.menuTitle)"
+												onClick="@command('navi', uri=item.data.menuUrl, title=item.data.menuTitle, menuCode=item.data.menuCode)" 
+												if="${item.data.menuType ne 'G' and item.data.menuType ne 'F'}">
+												<menupopup sclass="tree-popup" id="m_${item.data.menuCode }">
+													<menuitem iconSclass="z-icon-star light-blue"
+														label="${labels.addToFavorite }"
+														onClick="@command('addFave', obj=item)"/>
+												</menupopup>
+											</treecell>
+
+											<treecell
+												context="f_${item.data.menuCode }" label="@load(item.data.menuTitle)"
+												onClick="@command('navi', uri=item.data.menuUrl, title=item.data.menuTitle, menuCode=item.data.menuCode)" 
+												if="${item.data.menuType eq 'F'}">
+												<menupopup sclass="tree-popup" id="f_${item.data.menuCode}">
+													<menuitem iconSclass="z-icon-trash-o red"
+														label="${labels.removeFavorite }"
+														onClick="@command('removeFave', obj=item)" />
+												</menupopup>
+											</treecell>
+											
+										</treerow>
+									</treeitem>
+								</template>
+							</tree>
+						</vlayout>
+					</tabpanel>
+				</template>
+			</tabpanels>
+		</tabbox>
+	</div>
+</zk>
